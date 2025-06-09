@@ -1,0 +1,114 @@
+body {
+    background-color: #000;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Vertically center the container */
+    margin: 0;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide scrollbars */
+}
+
+.container {
+    position: relative; /* Ensure z-index is respected */
+    z-index: 1; /* Sit on top of the canvas */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 25px; /* Slightly more padding */
+    background-color: rgba(5, 5, 5, 0.85); /* Semi-transparent background */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6); /* Slightly stronger shadow */
+    width: 90%;
+    max-width: 450px; /* Adjusted max-width */
+}
+
+#inputText {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #111;
+    color: #0f0;
+    border: 1px solid #0f0;
+    border-radius: 4px;
+    width: 80%; /* More responsive width */
+    max-width: 300px;
+    text-align: center;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#inputText:focus {
+    outline: none;
+    box-shadow: 0 0 8px #0f0;
+}
+
+#inputText::placeholder {
+    color: #0a0;
+}
+
+#startButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0f0;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#startButton:hover {
+    background-color: #00cc00; /* Brighter green on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+#startButton:active {
+    transform: scale(0.95); /* Click effect */
+}
+
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Place it behind other content */
+    background-color: #000; /* Ensure canvas background is black */
+}
+
+#toggleControlsButton {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px; /* Explicit width */
+    height: 50px; /* Explicit height, same as width */
+    padding: 0; /* Remove padding, use flex to center */
+    display: flex; /* For centering content */
+    align-items: center; /* Vertical center */
+    justify-content: center; /* Horizontal center */
+    font-size: 24px; /* Adjust icon size as needed */
+    line-height: 1; /* Ensure icon is vertically centered if it has ascenders/descenders */
+    background-color: rgba(10, 25, 10, 0.75);
+    color: #0f0;
+    border: 1px solid #0f0;
+    border-radius: 50%; /* Makes it round */
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#toggleControlsButton:hover {
+    background-color: #0f0;
+    color: #000;
+    transform: translateX(-50%) scale(1.15);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+.hidden {
+    display: none !important;
+}
